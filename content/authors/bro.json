@@ -1,0 +1,24 @@
+{
+  "name": "bro",
+  "avatar": "/images/avatars/bro/avatar.jpeg",
+  "showcase": [
+    {
+      "discriminant": "link",
+      "value": {
+        "label": "thinkmill website",
+        "url": "https://thinkmill.com.au"
+      }
+    },
+    {
+      "discriminant": "link",
+      "value": {
+        "label": "keystatic website",
+        "url": "https://keystatic.com"
+      }
+    },
+    {
+      "discriminant": "youtubeVideoId",
+      "value": "tzPL0yhLBTw"
+    }
+  ]
+}
