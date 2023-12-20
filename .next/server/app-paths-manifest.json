@@ -1,5 +1,5 @@
 {
   "/page": "app/page.js",
-  "/keystatic/[[...params]]/page": "app/keystatic/[[...params]]/page.js",
-  "/[slug]/page": "app/[slug]/page.js"
+  "/[slug]/page": "app/[slug]/page.js",
+  "/authors/[slug]/page": "app/authors/[slug]/page.js"
 }

@@ -1,6 +1,7 @@
 import { DocumentRenderer } from "@keystatic/core/renderer";
 import { reader } from "../reader";
 import Image from "next/image";
+import Link from "next/link";
 
 export default async function Post({ params }: { params: { slug: string } }) {
   const { slug } = params;
@@ -28,7 +29,9 @@ export default async function Post({ params }: { params: { slug: string } }) {
           <ul>
             {authors.map((author) => (
               <li key={author.slug}>
-                <h3>{author.name}</h3>
+                <h3>
+                  <Link href={`/authors/${author.slug}`}>{author.name}</Link>
+                </h3>
                 <Image src={author.avatar} width={100} height={100} />
               </li>
             ))}

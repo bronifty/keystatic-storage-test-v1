@@ -1,14 +1,15 @@
 {
   "pages": {
+    "/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/page.css",
+      "static/chunks/app/page.js"
+    ],
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/layout.js"
-    ],
-    "/[slug]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/[slug]/page.js"
     ],
     "/[slug]/layout": [
       "static/chunks/webpack.js",
@@ -16,21 +17,21 @@
       "static/css/app/[slug]/layout.css",
       "static/chunks/app/[slug]/layout.js"
     ],
-    "/page": [
+    "/[slug]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/page.css",
-      "static/chunks/app/page.js"
+      "static/chunks/app/[slug]/page.js"
     ],
-    "/keystatic/layout": [
+    "/authors/[slug]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/keystatic/layout.js"
+      "static/chunks/app/authors/[slug]/page.js"
     ],
-    "/keystatic/[[...params]]/page": [
+    "/authors/[slug]/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/keystatic/[[...params]]/page.js"
+      "static/css/app/authors/[slug]/layout.css",
+      "static/chunks/app/authors/[slug]/layout.js"
     ]
   }
 }
