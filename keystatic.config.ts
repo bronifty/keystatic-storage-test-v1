@@ -3,7 +3,6 @@ import { config, collection, fields } from "@keystatic/core";
 export default config({
   storage: {
     kind: "local",
- 
   },
   collections: {
     posts: collection({

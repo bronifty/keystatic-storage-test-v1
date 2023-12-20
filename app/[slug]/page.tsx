@@ -1,5 +1,6 @@
-import { DocumentRenderer } from '@keystatic/core/renderer';
-import { reader } from '../reader';
+import { DocumentRenderer } from "@keystatic/core/renderer";
+import { reader } from "../reader";
+import Image from "next/image";
 
 export default async function Post({ params }: { params: { slug: string } }) {
   const { slug } = params;
@@ -8,12 +9,32 @@ export default async function Post({ params }: { params: { slug: string } }) {
 
   if (!post) return <div>Post not found!</div>;
 
+  const authors = await Promise.all(
+    post.authors.map(async (authorSlug) => ({
+      ...(await reader.collections.authors.read(authorSlug)),
+      slug: authorSlug,
+    }))
+  );
+
   return (
     <div>
       <h1>{post.title}</h1>
       <div>
         <DocumentRenderer document={await post.content()} />
       </div>
+      {authors.length > 0 && (
+        <>
+          <h2>Written By</h2>
+          <ul>
+            {authors.map((author) => (
+              <li key={author.slug}>
+                <h3>{author.name}</h3>
+                <Image src={author.avatar} width={100} height={100} />
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
     </div>
   );
 }
@@ -21,7 +42,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
 export async function generateStaticParams() {
   const slugs = await reader.collections.posts.list();
 
-  return slugs.map(slug => ({
+  return slugs.map((slug) => ({
     slug,
   }));
 }
