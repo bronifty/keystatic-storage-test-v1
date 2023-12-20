@@ -11,7 +11,7 @@ export default async function AuthorPage({
   const author = await reader.collections.authors.read(slug);
   return (
     <>
-      <div>Author: {author.name}</div>
+      <h2>Author: {author.name}</h2>
       <Image src={author?.avatar} height={100} width={100}></Image>
     </>
   );
